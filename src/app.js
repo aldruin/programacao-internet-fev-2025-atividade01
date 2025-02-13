@@ -2,6 +2,8 @@ import express from "express";
 
 const app = express();
 
-app.use(express.json());
+//middleware para arquivos estaticos 
+app.use(express.static('src/views/public'));
+
 
 export default app;
