@@ -36,12 +36,7 @@ app.post("/login", (req, res) => {
 
   if (usuario === "admin" && senha === "admin") { // verifica se o usuario e senha estao certos
     req.session.autenticado = true; //define como valido
-    req.session.save((err) => { // usa metodo .save() para garantir a persistencia dos dados da sessao
-      if (err) {
-        console.error("Erro ao salvar sessão:", err); // verifica por erros e imprime ao usuario (para depurar)
-      }
-      res.redirect(redirectTo); //redireciona para a url de redirecionamento ou pagina inicial
-    });
+    res.redirect(redirectTo);
   } else {
     res.redirect('/login.html'); // caso falhe o login, volta para a pagina de login
   }
